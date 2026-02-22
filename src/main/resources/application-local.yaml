@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=si_example
+    username: postgres
+    password: postgres
+  flyway:
+    enabled: true
+artemis:
+  url: tcp://localhost:61616
+  username:
+  password:
