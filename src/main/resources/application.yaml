@@ -1,0 +1,37 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: si-example
+  profiles:
+    active: local
+  flyway:
+    enabled: true
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  jpa:
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+caching-factory:
+  cache-consumers: true
+  cache-producers: true
+  reconnect-on-exceptions: true
+  session-cache-size: 10
+
+queues:
+  service-in: INT.SERVICE.IN
+  service-out: INT.SERVICE.OUT
+  external-service-req: INT.EXT-SERVICE.REQ
+  external-service-resp: INT.EXT-SERVICE.RESP
